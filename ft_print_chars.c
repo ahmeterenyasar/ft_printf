@@ -24,3 +24,8 @@ int	ft_print_str(char *str)
 	}
 	return (i);
 }
+int	ft_print_percent(void)
+{
+	write(1, "%", 1);
+	return (1);
+}
