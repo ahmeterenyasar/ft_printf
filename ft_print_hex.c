@@ -53,7 +53,7 @@ static void ft_put_ptr(unsigned long long num)
     }
 }
 
-ft_print_ptr(unsigned long long ptr)
+int ft_print_ptr(unsigned long long ptr)
 {
     int len;
 
