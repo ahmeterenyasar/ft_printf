@@ -2,6 +2,37 @@
 
 #include "ft_printf.h"
 
+static int ft_format(va_list args, const char format)
+{
+    int print_len;
+
+    print_len = 0;
+    if (format == 'c')
+    {
+        print_len += ft_print_char(va_arg(args, int));
+    } else if (format == 's')
+    {
+        print_len += ft_print_str(va_arg(args, char *));
+    } else if (format == 'p')
+    {
+        print_len += ft_print_ptr(va_arg(args, unsigned long long));
+    } else if (format == 'd' || format == 'i')
+    {
+        print_len += ft_print_nbr(va_arg(args, int));
+    } else if (format == 'u')
+    {
+        print_len += ft_print_unsigned(va_arg(args, unsigned int));
+    } else if (format == 'x' || format == 'X')
+    {
+        print_len += ft_print_hex(va_arg(args, unsigned int), format);
+    } else if (format == '%')
+    {
+        print_len += ft_print_percent();
+    }
+    return (print_len);
+}
+
+
 int ft_printf(const char* str, ...)
 {
     int i;
