@@ -6,7 +6,7 @@
 /*   By: ayasar <ayasar@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 10:03:55 by ayasar            #+#    #+#             */
-/*   Updated: 2026/04/05 10:07:21 by ayasar           ###   ########.fr       */
+/*   Updated: 2026/04/05 10:18:56 by ayasar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_print_nbr(int n)
 	if (n > 9)
 	{
 		len += ft_print_nbr(n / 10);
-		len += ft_print_nbr(n % 10);
+		len += ft_print_char((n % 10) + '0');
 	}
 	else
 		len += ft_print_char(n + '0');
@@ -39,7 +39,7 @@ int	ft_print_nbr(int n)
 
 int	ft_print_unsigned(unsigned int n)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (n >= 10)

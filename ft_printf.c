@@ -6,68 +6,48 @@
 /*   By: ayasar <ayasar@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 10:05:03 by ayasar            #+#    #+#             */
-/*   Updated: 2026/04/05 10:07:27 by ayasar           ###   ########.fr       */
+/*   Updated: 2026/04/05 10:21:20 by ayasar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_format(va_list args, const char format)
+static int	ft_format(va_list *args, const char format)
 {
-	int	print_len;
-
-	print_len = 0;
 	if (format == 'c')
-	{
-		print_len += ft_print_char(va_arg(args, int));
-	}
+		return (ft_print_char(va_arg(*args, int)));
 	else if (format == 's')
-	{
-		print_len += ft_print_str(va_arg(args, char *));
-	}
+		return (ft_print_str(va_arg(*args, char *)));
 	else if (format == 'p')
-	{
-		print_len += ft_print_ptr(va_arg(args, unsigned long long));
-	}
+		return (ft_print_ptr(va_arg(*args, unsigned long long)));
 	else if (format == 'd' || format == 'i')
-	{
-		print_len += ft_print_nbr(va_arg(args, int));
-	}
+		return (ft_print_nbr(va_arg(*args, int)));
 	else if (format == 'u')
-	{
-		print_len += ft_print_unsigned(va_arg(args, unsigned int));
-	}
+		return (ft_print_unsigned(va_arg(*args, unsigned int)));
 	else if (format == 'x' || format == 'X')
-	{
-		print_len += ft_print_hex(va_arg(args, unsigned int), format);
-	}
+		return (ft_print_hex(va_arg(*args, unsigned int), format));
 	else if (format == '%')
-	{
-		print_len += ft_print_percent();
-	}
-	return (print_len);
+		return (ft_print_percent());
+	return (0);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	int i;
-	va_list args;
-	int print_len;
+	int		i;
+	int		print_len;
+	va_list	args;
 
 	i = 0;
 	print_len = 0;
 	va_start(args, str);
 	while (str[i])
 	{
+		if (str[i] == '%' && str[i + 1] == '\0')
+			break ;
 		if (str[i] == '%')
-		{
-			print_len += ft_format(args, str[i + 1]);
-			i++;
-		}
+			print_len += ft_format(&args, str[++i]);
 		else
-		{
 			print_len += ft_print_char(str[i]);
-		}
 		i++;
 	}
 	va_end(args);

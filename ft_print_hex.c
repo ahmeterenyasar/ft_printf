@@ -6,7 +6,7 @@
 /*   By: ayasar <ayasar@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 10:05:14 by ayasar            #+#    #+#             */
-/*   Updated: 2026/04/05 10:07:18 by ayasar           ###   ########.fr       */
+/*   Updated: 2026/04/05 10:18:56 by ayasar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	ft_put_ptr(unsigned long long num)
 	if (num >= 16)
 	{
 		ft_put_ptr(num / 16);
-		ft_put_ptr(num % 16);
+		ft_print_char("0123456789abcdef"[num % 16]);
 	}
 	else
 	{
@@ -67,7 +67,7 @@ static void	ft_put_ptr(unsigned long long num)
 
 int	ft_print_ptr(unsigned long long ptr)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (ptr == 0)

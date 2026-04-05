@@ -6,7 +6,7 @@
 /*   By: ayasar <ayasar@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 10:05:20 by ayasar            #+#    #+#             */
-/*   Updated: 2026/04/05 10:07:14 by ayasar           ###   ########.fr       */
+/*   Updated: 2026/04/05 10:11:25 by ayasar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	ft_print_str(char *str)
 	}
 	return (i);
 }
+
 int	ft_print_percent(void)
 {
 	write(1, "%", 1);
