@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ayasar <ayasar@student.42istanbul.com.t    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/04/05 10:07:34 by ayasar            #+#    #+#              #
+#    Updated: 2026/04/05 10:07:35 by ayasar           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		= libftprintf.a
 
 SRCS		= ft_printf.c \
@@ -7,7 +19,7 @@ SRCS		= ft_printf.c \
 
 OBJS		= $(SRCS:.c=.o)
 
-CC			= gcc
+CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 
 RM			= rm -f

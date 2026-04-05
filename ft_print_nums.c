@@ -1,10 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_nums.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ayasar <ayasar@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/05 10:03:55 by ayasar            #+#    #+#             */
+/*   Updated: 2026/04/05 10:07:21 by ayasar           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int	ft_print_nbr(int n)
 {
-	int		len;
-	// char	*str;
+	int	len;
 
 	len = 0;
 	if (n == -2147483648)
@@ -27,16 +37,15 @@ int	ft_print_nbr(int n)
 	return (len);
 }
 
-int ft_print_unsigned(unsigned int n)
+int	ft_print_unsigned(unsigned int n)
 {
-    int len;
+	int len;
 
-    len = 0;
-    if (n >= 10)
-    {
-        len += ft_print_unsigned(n / 10);
-    }
-    len += ft_print_char((n%10) + '0');
-    return len;
-    
+	len = 0;
+	if (n >= 10)
+	{
+		len += ft_print_unsigned(n / 10);
+	}
+	len += ft_print_char((n % 10) + '0');
+	return (len);
 }
